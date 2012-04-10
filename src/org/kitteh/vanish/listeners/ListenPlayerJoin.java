@@ -45,14 +45,6 @@ public class ListenPlayerJoin implements Listener {
      */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerJoinLate(PlayerJoinEvent event) {
-        if (VanishPerms.joinVanished(event.getPlayer())) {
-            String add = "";
-            if (VanishPerms.canVanish(event.getPlayer())) {
-                add = " To appear: /vanish";
-            }
-            event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "You have joined vanished." + add);
-            this.plugin.messageStatusUpdate(ChatColor.DARK_AQUA + event.getPlayer().getName() + " has joined vanished");
-        }
         if (VanishPerms.joinWithoutAnnounce(event.getPlayer())) {
             this.plugin.getManager().getAnnounceManipulator().addToDelayedAnnounce(event.getPlayer().getName());
             event.setJoinMessage(null);
